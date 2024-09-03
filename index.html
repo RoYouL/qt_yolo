@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOLOv5 检测界面</title>
+</head>
+
+<body>
+  <h1>YOLOv5 检测界面</h1>
+  <label for="camera-select">选择摄像头:</label>
+  <select id="camera-select">
+    <option value="0">摄像头 0</option>
+    <option value="1">摄像头 1</option>
+    <option value="2">摄像头 2</option>
+  </select>
+
+  <div>
+    <button id="select-python-path">Python 路径选择</button>
+    <button id="start-camera">开始摄像头检测</button>
+    <button id="stop-camera">停止摄像头检测</button>
+    <button id="upload-image">上传图片</button>
+    <button id="upload-video">上传视频</button>
+    <button id="clear-content">清除内容</button> <!-- 清除内容按钮 -->
+    <button id="save-content">另存为</button> <!-- 另存为按钮 -->
+  </div>
+  <div id="progress-message" style="display:none; color:blue;"></div>
+  <div>
+    <img id="image-preview" style="display:none; width: 100%; max-width: 500px;" />
+    <video id="video-preview" style="display:none; width: 100%; max-width: 500px;" controls></video>
+  </div>
+  <!-- 用于显示当前 Python 路径的文本框 -->
+  <div>
+    <label for="python-path">当前python路径:</label>
+    <input type="text" id="python-path" readonly />
+  </div>
+
+  <!-- 用于显示错误信息的区域 -->
+  <div id="error-message" style="display:none; color:red;"></div>
+
+  <script src="renderer.js"></script>
+</body>
+
+</html>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  button {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  video,
+  img {
+    max-width: 100%;
+    max-height: 400px;
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    display: none;
+  }
+</style>
